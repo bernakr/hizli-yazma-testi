@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hizli Yazma Testi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <section class="panel">
+      <h1>Hizli Yazma Testi</h1>
+
+      <div class="controls">
+        <label>
+          Test Turu
+          <select id="testType">
+            <option value="text">Metin</option>
+            <option value="mixed">Karisik</option>
+            <option value="numbers">Sayilar</option>
+            <option value="emoji">Emoji</option>
+          </select>
+        </label>
+
+        <label>
+          Zorluk
+          <select id="difficulty">
+            <option value="easy">Kolay</option>
+            <option value="medium">Orta</option>
+            <option value="hard">Zor</option>
+          </select>
+        </label>
+
+        <label class="theme-picker">
+          Tema
+          <select id="themeMode">
+            <option value="soft">Soft</option>
+            <option value="neon">Neon Pop</option>
+          </select>
+        </label>
+
+        <div class="action-stack">
+          <button id="startButton" type="button">Baslat</button>
+          <div class="start-row">
+            <button id="stopButton" type="button" class="stop-btn" disabled>Durdur</button>
+            <label class="line-mode">
+              <input id="lineMode" type="checkbox" />
+              Tek Satir Modu
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box"><span>Gecen</span><strong id="elapsed">0</strong></div>
+        <div class="stat-box"><span>WPM</span><strong id="wpm">0</strong></div>
+        <div class="stat-box"><span>Dogruluk</span><strong id="accuracy">0%</strong></div>
+        <div class="stat-box"><span>Weighted WPM</span><strong id="weightedWpm">0</strong></div>
+      </div>
+
+      <div id="display" class="display" aria-live="polite"></div>
+
+      <label class="input-label" for="typingInput">Metni yaz:</label>
+      <textarea id="typingInput" rows="3" placeholder="Baslat'a tikladiktan sonra yazmaya basla..." disabled></textarea>
+
+      <p id="result" class="result"></p>
+    </section>
+
+    <section class="history">
+      <div class="history-head">
+        <h2>Gecmis Sonuclar</h2>
+        <button id="clearHistory" type="button" class="ghost-btn">Gecmisi Temizle</button>
+      </div>
+      <div id="historyEmpty" class="empty-text">Henuz test sonucu yok.</div>
+      <div id="historyTableWrap" class="table-wrap hidden">
+        <table>
+          <thead>
+            <tr>
+              <th>Tarih</th>
+              <th>Tur</th>
+              <th>Zorluk</th>
+              <th>Tamamlama</th>
+              <th>WPM</th>
+              <th>Dogruluk</th>
+              <th>Weighted</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
